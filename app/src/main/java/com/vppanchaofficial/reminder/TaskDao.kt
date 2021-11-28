@@ -15,5 +15,5 @@ interface TaskDao {
     suspend fun deleteTask(taskModel: TaskModel)
 
     @Query("SELECT * FROM task")
-    suspend fun getTask(): ArrayList<TaskModel>
+    suspend fun getTask(): List<TaskModel>
 }

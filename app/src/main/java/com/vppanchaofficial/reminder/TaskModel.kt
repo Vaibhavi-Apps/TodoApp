@@ -7,8 +7,5 @@ import androidx.room.PrimaryKey
 data class TaskModel(@PrimaryKey(autoGenerate = true)
                        val id: Int,
                        val taskName: String,
-                       val taskDesc: String){
-
-
-}
+                       val taskDesc: String)
 
