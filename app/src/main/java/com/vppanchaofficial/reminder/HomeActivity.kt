@@ -34,7 +34,7 @@ class HomeActivity : AppCompatActivity() {
             getTask(binding)
         }
 
-        binding.imageBack.setOnClickListener{
+        binding.imageBack.setOnClickListener {
             finish()
         }
     }
@@ -55,10 +55,10 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onRestart() {
         super.onRestart()
-        /*GlobalScope.launch {
+        GlobalScope.launch {
             val arrayList = database.taskDao().getTask()
-            Log.e("arraylist",""+arrayList)
-        }*/
+            adapter.updateList(arrayList)
+        }
     }
 
 }

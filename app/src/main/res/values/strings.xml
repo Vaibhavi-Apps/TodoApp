@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">Reminder</string>
+    <string name="app_name">Todo</string>
+    <string name="image_view">image_view</string>
+    <string name="add_task">Add Task</string>
+    <string name="enter_task">Enter Task</string>
+    <string name="description">Description</string>
+    <string name="save_task">Save Task</string>
 </resources>

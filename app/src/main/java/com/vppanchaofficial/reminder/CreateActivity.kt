@@ -20,11 +20,20 @@ class CreateActivity : AppCompatActivity() {
         database = Room.databaseBuilder(this, TaskAppDataBase::class.java, "taskDb").build()
 
         binding.saveTask.setOnClickListener{
-            GlobalScope.launch {
-                database.taskDao().insertTask(TaskModel(0,binding.task.text.toString(),binding.text2.text.toString()))
+            if(binding.task.text ==  null || binding.task.text.toString().equals("")){
+                binding.task.error = "Please Enter Task"
+            }else {
+                GlobalScope.launch {
+                    database.taskDao().insertTask(
+                        TaskModel(
+                            0,
+                            binding.task.text.toString(),
+                            binding.text2.text.toString()
+                        )
+                    )
+                }
+                finish()
             }
-            // TaskModel("task_name9","task_desc1")
-            finish()
         }
     }
 }

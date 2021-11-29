@@ -15,7 +15,8 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/image_view" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -28,13 +29,14 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.478" />
+        app:layout_constraintVertical_bias="0.478"
+        android:contentDescription="@string/image_view" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="56dp"
-        android:text="Add Task"
+        android:text="@string/add_task"
         android:textColor="@color/black"
         android:textSize="25sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
@@ -57,14 +59,16 @@
         android:layout_margin="20dp"
         android:layout_marginStart="16dp"
         android:background="@drawable/edittext_backgrounds"
-        android:hint="Enter Task"
+        android:hint="@string/enter_task"
         android:padding="10dp"
         app:layout_constraintBaseline_toBottomOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/guideline4"
-        app:layout_constraintVertical_bias="0.032" />
+        app:layout_constraintVertical_bias="0.032"
+        android:autofillHints="edittext"
+        android:inputType="text" />
 
     <EditText
         android:id="@+id/text2"
@@ -73,9 +77,10 @@
         android:layout_margin="20dp"
         android:layout_marginStart="16dp"
         android:background="@drawable/edittext_backgrounds"
-        android:hint="Description"
+        android:hint="@string/description"
         android:inputType="textLongMessage"
         android:padding="10dp"
+        android:autofillHints="edittext"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -88,7 +93,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:background="@drawable/edittext_backgrounds"
-        android:text="Save Task"
+        android:text="@string/save_task"
         android:textColor="@color/white"
         android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
