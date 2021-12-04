@@ -1,10 +1,9 @@
-package com.vppanchaofficial.reminder
+package com.vppanchalofficial.reminder
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import com.vppanchaofficial.reminder.databinding.ActivityMainBinding
+import com.vppanchalofficial.reminder.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,10 +12,12 @@ class MainActivity : AppCompatActivity() {
 
         val binding: ActivityMainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        val preference = PreferenceHelper(this)
 
         binding.button.setOnClickListener {
+            preference.saveBooleanData(Constant.FLAG_NEW_USER,true)
             val intent = Intent(this, HomeActivity::class.java)
-            startActivity(intent);
+            startActivity(intent)
             finish()
         }
     }

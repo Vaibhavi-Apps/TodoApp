@@ -6,7 +6,7 @@
 
         <variable
             name="taskModel"
-            type="com.vppanchaofficial.reminder.TaskModel" />
+            type="com.vppanchalofficial.reminder.TaskModel" />
 
     </data>
 

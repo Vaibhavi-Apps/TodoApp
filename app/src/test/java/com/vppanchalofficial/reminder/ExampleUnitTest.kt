@@ -1,4 +1,4 @@
-package com.vppanchaofficial.reminder
+package com.vppanchalofficial.reminder
 
 import org.junit.Test
 

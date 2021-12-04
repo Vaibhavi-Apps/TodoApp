@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.vppanchaofficial.reminder">
+    package="com.vppanchalofficial.reminder">
 
     <application
         android:allowBackup="true"
@@ -11,13 +11,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Reminder">
         <activity
-            android:name=".CreateActivity"
+            android:name="com.vppanchalofficial.reminder.CreateActivity"
             android:exported="true" />
         <activity
-            android:name=".HomeActivity"
+            android:name="com.vppanchalofficial.reminder.HomeActivity"
             android:exported="true" />
         <activity
-            android:name=".SplashScreen"
+            android:name="com.vppanchalofficial.reminder.SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,7 +26,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name="com.vppanchalofficial.reminder.MainActivity"
             android:exported="true" />
     </application>
 

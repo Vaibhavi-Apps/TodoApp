@@ -1,4 +1,4 @@
-package com.vppanchaofficial.reminder
+package com.vppanchalofficial.reminder
 
 import android.view.View
 import com.google.android.material.snackbar.Snackbar

@@ -1,24 +1,26 @@
-package com.vppanchaofficial.reminder
+package com.vppanchalofficial.reminder
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 
-class myTaskListAdapter(private var context: Context, private var itemViewModels: List<TaskModel>) :
+class myTaskListAdapter(private var context: Context) :
     RecyclerView.Adapter<myTaskListAdapter.ViewHolder>() {
 
+    private var itemViewModels: List<TaskModel> = listOf()
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding : ViewDataBinding = DataBindingUtil.inflate(
+        val binding: ViewDataBinding = DataBindingUtil.inflate(
             LayoutInflater.from(parent.context),
             R.layout.create_task_list,
             parent,
@@ -49,15 +51,21 @@ class myTaskListAdapter(private var context: Context, private var itemViewModels
         }
     }
 
-    fun updateList(arrayList: List<TaskModel>) {
-        itemViewModels = arrayList
+    fun setList(it: List<TaskModel>) {
+        this.itemViewModels = it;
         notifyDataSetChanged()
     }
+
+/*
+    fun updateList(arrayList: LiveData<List<TaskModel>>) {
+        itemViewModels = arrayList
+        //notifyDataSetChanged()
+    }
+*/
 
 
     class ViewHolder(var binding: ViewDataBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(taskModel: TaskModel) {
-
             binding.setVariable(BR.taskModel, taskModel)
             binding.executePendingBindings()
         }

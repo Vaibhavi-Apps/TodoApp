@@ -1,5 +1,6 @@
-package com.vppanchaofficial.reminder
+package com.vppanchalofficial.reminder
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 
 @Dao
@@ -15,5 +16,5 @@ interface TaskDao {
     suspend fun deleteTask(taskModel: TaskModel)
 
     @Query("SELECT * FROM task")
-    suspend fun getTask(): List<TaskModel>
+    fun getTask(): LiveData<List<TaskModel>>
 }

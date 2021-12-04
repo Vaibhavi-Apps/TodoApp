@@ -1,9 +1,18 @@
-package com.vppanchaofficial.reminder
+package com.vppanchalofficial.reminder
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.recyclerview.widget.LinearLayoutManager
 
-class mainViewModel : ViewModel() {
+class mainViewModel(private val taskRepository: TaskRepository) : ViewModel() {
+
+    fun getTask(): LiveData<List<TaskModel>> {
+        return taskRepository.getTask()
+    }
+
+    suspend fun insertTask(taskModel: TaskModel){
+        return taskRepository.insertTask(taskModel)
+    }
 
 /*
     fun addTask(){

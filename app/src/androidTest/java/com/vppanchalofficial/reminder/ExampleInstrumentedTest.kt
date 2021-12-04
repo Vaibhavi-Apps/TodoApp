@@ -1,4 +1,4 @@
-package com.vppanchaofficial.reminder
+package com.vppanchalofficial.reminder
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

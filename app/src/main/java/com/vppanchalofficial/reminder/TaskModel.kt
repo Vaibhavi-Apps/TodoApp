@@ -1,4 +1,4 @@
-package com.vppanchaofficial.reminder
+package com.vppanchalofficial.reminder
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
