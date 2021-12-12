@@ -5,6 +5,12 @@
     <size
         android:width="120dp"
         android:height="120dp"/>
+
+    <gradient
+        android:angle="45"
+        android:startColor="@color/white"
+        android:centerColor="@color/purple_200"
+        android:endColor="@color/purple_500"/>
   <!--  <corners
         android:radius="200dp"
         android:bottomLeftRadius="160dp"
