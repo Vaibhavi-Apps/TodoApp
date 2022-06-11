@@ -21,13 +21,12 @@
             android:id="@+id/image_delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/image_view"
             android:padding="8dp"
-            android:visibility="gone"
             android:src="@drawable/ic_baseline_check_24"
-            app:layout_constraintBottom_toTopOf="@+id/guideline5"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline6"
-            android:contentDescription="@string/image_view" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView2"
