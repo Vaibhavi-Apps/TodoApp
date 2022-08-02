@@ -31,6 +31,7 @@
             android:id="@+id/image_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
             android:src="@drawable/ic_baseline_arrow_back_ios_24"
             app:layout_constraintBottom_toTopOf="@+id/guideline4"
             app:layout_constraintEnd_toStartOf="@+id/text"
@@ -41,8 +42,8 @@
             android:id="@+id/text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="56dp"
-            android:text="Hello, Vaibhavi"
+            android:layout_marginStart="40dp"
+            android:text="To-Do"
             android:textColor="@color/black"
             android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/guideline4"
@@ -61,7 +62,6 @@
             android:id="@+id/taskList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
             android:paddingBottom="100dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -69,27 +69,21 @@
             app:layout_constraintTop_toBottomOf="@+id/guideline4"
             app:layout_constraintVertical_bias="0.011" />
 
-        <FrameLayout
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/image_newtask"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
+            android:layout_margin="10dp"
+            android:contentDescription="Floating Button"
+            android:onClick="openActivty"
+            android:backgroundTint="@color/purple_700"
+            android:src="@drawable/ic_baseline_add_circle_outline_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.9"
-            app:layout_constraintStart_toStartOf="parent">
+            app:tint="@color/white"
+            android:layout_gravity="end|bottom"/>
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/image_newtask"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/purple_700"
-                android:layout_margin="10dp"
-                android:contentDescription="Floating Button"
-                android:onClick="openActivty"
-                android:src="@drawable/ic_baseline_add_circle_outline_24"
-                app:maxImageSize="40dp"
-                app:tint="@color/white" />
-        </FrameLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

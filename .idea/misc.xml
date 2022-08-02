@@ -7,9 +7,10 @@
         <entry key="app/src/main/res/drawable-v24/c_fastscroller_preview.xml" value="0.2171875" />
         <entry key="app/src/main/res/drawable/edittext_backgrounds.xml" value="0.2171875" />
         <entry key="app/src/main/res/drawable/edittext_shape.xml" value="0.2171875" />
-        <entry key="app/src/main/res/drawable/ic_baseline_add_circle_outline_24.xml" value="0.2171875" />
+        <entry key="app/src/main/res/drawable/ic_baseline_add_circle_outline_24.xml" value="0.11" />
         <entry key="app/src/main/res/drawable/ic_baseline_arrow_back_ios_24.xml" value="0.2171875" />
         <entry key="app/src/main/res/drawable/ic_baseline_check_24.xml" value="0.11041666666666666" />
+        <entry key="app/src/main/res/drawable/ic_baseline_check_circle_24.xml" value="0.1545" />
         <entry key="app/src/main/res/drawable/ic_baseline_save_24.xml" value="0.2171875" />
         <entry key="app/src/main/res/drawable/shapeIcon.xml" value="0.2171875" />
         <entry key="app/src/main/res/drawable/shape_.xml" value="0.2171875" />
@@ -18,16 +19,17 @@
         <entry key="app/src/main/res/drawable/task_background.xml" value="0.11" />
         <entry key="app/src/main/res/layout-sw600dp/activity_main.xml" value="0.1284153005464481" />
         <entry key="app/src/main/res/layout/activity_create.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/activity_home.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.21" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_splase_screen.xml" value="0.20104166666666667" />
-        <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.20104166666666667" />
+        <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.18" />
         <entry key="app/src/main/res/layout/crate_task_adapter.xml" value="0.20104166666666667" />
         <entry key="app/src/main/res/layout/crate_task_list.xml" value="0.20104166666666667" />
-        <entry key="app/src/main/res/layout/create_task_list.xml" value="0.20104166666666667" />
+        <entry key="app/src/main/res/layout/create_task_list.xml" value="0.18" />
         <entry key="app/src/main/res/layout/create_tasks_list.xml" value="0.20104166666666667" />
         <entry key="app/src/main/res/layout/task_list.xml" value="0.20104166666666667" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/app_logo.xml" value="0.2171875" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/app_logo_round.xml" value="0.144" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2171875" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2171875" />
       </map>

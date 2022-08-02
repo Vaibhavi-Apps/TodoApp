@@ -12,8 +12,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_constraint"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
         android:layout_margin="10dp"
         android:background="@drawable/task_background">
 
@@ -23,8 +23,9 @@
             android:layout_height="wrap_content"
             android:contentDescription="@string/image_view"
             android:padding="8dp"
-            android:src="@drawable/ic_baseline_check_24"
+            android:src="@drawable/ic_baseline_check_circle_24"
             android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,13 +35,12 @@
             android:layout_height="wrap_content"
             android:padding="20dp"
             android:text="@{taskModel.taskName}"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="20sp"
             android:maxLines="1"
             app:layout_constraintBottom_toTopOf="@+id/guideline5"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline6" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline5"
@@ -49,11 +49,5 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_end="0dp" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_begin="20dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

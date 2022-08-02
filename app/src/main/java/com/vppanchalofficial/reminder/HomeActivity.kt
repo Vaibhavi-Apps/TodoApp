@@ -2,10 +2,12 @@ package com.vppanchalofficial.reminder
 
 import android.content.Intent
 import android.os.Bundle
+import android.speech.RecognizerIntent
 import android.util.Log
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.LifecycleObserver
@@ -17,6 +19,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.vppanchalofficial.reminder.databinding.ActivityHomeBinding
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.util.*
 
 
 class HomeActivity : AppCompatActivity() {
@@ -26,15 +29,15 @@ class HomeActivity : AppCompatActivity() {
 
     private lateinit var repository: TaskRepository
     private lateinit var mainViewModelV: mainViewModel
-    
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home)
         binding.lifecycleOwner = this
 
         adapter = myTaskListAdapter(this)
-        val staggeredGridLayoutManager = StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
-        binding.taskList.setLayoutManager(staggeredGridLayoutManager)
+        val linearLayoutManager = LinearLayoutManager(this)
+        binding.taskList.setLayoutManager(linearLayoutManager)
         binding.taskList.adapter = adapter
 
         dao = TaskAppDataBase.getDatabase(applicationContext).taskDao()
@@ -65,6 +68,8 @@ class HomeActivity : AppCompatActivity() {
         bottomsheet.show()
 
         saveButton.setOnClickListener{
+
+
             if(taskName.text ==  null || taskName.text.toString().equals("")){
                 taskName.error = "Please Enter Task"
             }else {
