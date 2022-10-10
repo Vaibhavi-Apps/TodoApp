@@ -5,11 +5,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
-import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
+import com.vppanchalofficial.reminder.databinding.CreateTaskListBinding
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -20,9 +18,8 @@ class myTaskListAdapter(private var context: Context) :
     private var itemViewModels: List<TaskModel> = listOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding: ViewDataBinding = DataBindingUtil.inflate(
+        val binding = CreateTaskListBinding.inflate(
             LayoutInflater.from(parent.context),
-            R.layout.create_task_list,
             parent,
             false
         )
@@ -37,8 +34,7 @@ class myTaskListAdapter(private var context: Context) :
 
         val taskModel: TaskModel = itemViewModels.get(position)
         holder.bind(taskModel)
-
-        holder.itemView.setOnClickListener {
+        holder.binding.imageDelete.setOnClickListener {
             (itemViewModels as MutableList).removeAt(position)
             notifyItemRemoved(position)
             notifyItemRangeChanged(position, itemViewModels.size)
@@ -64,7 +60,7 @@ class myTaskListAdapter(private var context: Context) :
 */
 
 
-    class ViewHolder(var binding: ViewDataBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder(var binding: CreateTaskListBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(taskModel: TaskModel) {
             binding.setVariable(BR.taskModel, taskModel)
             binding.executePendingBindings()

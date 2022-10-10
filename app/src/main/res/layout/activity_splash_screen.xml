@@ -8,17 +8,16 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="240dp"
+        android:layout_height="240dp"
         android:contentDescription="@string/image_view"
-        android:src="@drawable/images"
+        android:src="@drawable/ic_to_do_list_amico"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-<!--
 
-    <com.airbnb.lottie.LottieAnimationView
+   <!-- <com.airbnb.lottie.LottieAnimationView
         android:layout_width="361dp"
         android:layout_height="269dp"
         android:layout_gravity="center_horizontal"
@@ -32,8 +31,7 @@
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/schedule"
         app:lottie_repeatMode="restart"
-        app:lottie_speed="0.8" />
--->
+        app:lottie_speed="0.8" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

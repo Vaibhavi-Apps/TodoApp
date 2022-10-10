@@ -17,7 +17,7 @@
         android:layout_margin="10dp"
         android:background="@drawable/task_background">
 
-        <ImageView
+        <RadioButton
             android:id="@+id/image_delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -26,7 +26,7 @@
             android:src="@drawable/ic_baseline_check_circle_24"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/textView2"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -38,8 +38,8 @@
             android:textColor="@color/black"
             android:textSize="20sp"
             android:maxLines="1"
+            app:layout_constraintEnd_toEndOf="@id/image_delete"
             app:layout_constraintBottom_toTopOf="@+id/guideline5"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.Guideline
