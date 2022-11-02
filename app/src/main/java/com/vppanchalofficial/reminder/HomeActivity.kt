@@ -7,13 +7,16 @@ import android.util.Log
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.EditText
+import android.widget.SimpleAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.vppanchalofficial.reminder.databinding.ActivityHomeBinding
@@ -38,6 +41,16 @@ class HomeActivity : AppCompatActivity() {
         adapter = myTaskListAdapter(this)
         val linearLayoutManager = LinearLayoutManager(this)
         binding.taskList.setLayoutManager(linearLayoutManager)
+
+        val swipeHandler = object : SwipeToDeleteCallback(this) {
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                adapter.removeAt(viewHolder.adapterPosition)
+            }
+        }
+        val itemTouchHelper = ItemTouchHelper(swipeHandler)
+        itemTouchHelper.attachToRecyclerView(binding.taskList)
+
+
         binding.taskList.adapter = adapter
 
         dao = TaskAppDataBase.getDatabase(applicationContext).taskDao()

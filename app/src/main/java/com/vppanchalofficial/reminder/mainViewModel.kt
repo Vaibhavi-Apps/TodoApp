@@ -1,5 +1,6 @@
 package com.vppanchalofficial.reminder
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -12,6 +13,9 @@ class mainViewModel(private val taskRepository: TaskRepository) : ViewModel() {
 
     suspend fun insertTask(taskModel: TaskModel){
         return taskRepository.insertTask(taskModel)
+    }
+    suspend fun updateTask(taskModel: TaskModel){
+        return taskRepository.updateTask(taskModel)
     }
 
 /*

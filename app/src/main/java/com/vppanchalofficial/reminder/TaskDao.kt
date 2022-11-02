@@ -15,6 +15,6 @@ interface TaskDao {
     @Delete
     suspend fun deleteTask(taskModel: TaskModel)
 
-    @Query("SELECT * FROM task")
+    @Query("SELECT * FROM task ORDER BY taskStatus DESC")
     fun getTask(): LiveData<List<TaskModel>>
 }
