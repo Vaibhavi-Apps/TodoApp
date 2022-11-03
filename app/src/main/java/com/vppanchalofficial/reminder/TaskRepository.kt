@@ -15,5 +15,8 @@ class TaskRepository(private val taskDao: TaskDao){
     suspend fun updateTask(task: TaskModel){
         taskDao.updateTask(task)
     }
+ suspend fun deleteTask(task: TaskModel){
+        taskDao.deleteTask(task)
+    }
 
 }

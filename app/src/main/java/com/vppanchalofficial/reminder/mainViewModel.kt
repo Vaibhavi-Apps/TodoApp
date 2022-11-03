@@ -17,6 +17,9 @@ class mainViewModel(private val taskRepository: TaskRepository) : ViewModel() {
     suspend fun updateTask(taskModel: TaskModel){
         return taskRepository.updateTask(taskModel)
     }
+    suspend fun deleteTask(taskModel: TaskModel){
+        return taskRepository.deleteTask(taskModel)
+    }
 
 /*
     fun addTask(){

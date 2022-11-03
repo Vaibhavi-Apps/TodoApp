@@ -16,6 +16,9 @@ class myTaskListAdapter(private var context: HomeActivity) :
     RecyclerView.Adapter<myTaskListAdapter.ViewHolder>() {
 
     private var itemViewModels: List<TaskModel> = listOf()
+    private lateinit var mainViewModels: mainViewModel
+    private lateinit var dao: TaskDao
+    private lateinit var repository: TaskRepository
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = CreateTaskListBinding.inflate(
@@ -30,11 +33,9 @@ class myTaskListAdapter(private var context: HomeActivity) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        val database = Room.databaseBuilder(context, TaskAppDataBase::class.java, "taskDb").build()
-        val dao = TaskAppDataBase.getDatabase(context.applicationContext).taskDao()
-        val repository = TaskRepository(dao)
-        val mainViewModel = ViewModelProvider(context, MainViewModelFectory(repository)).get(mainViewModel::class.java)
-
+        dao = TaskAppDataBase.getDatabase(context.applicationContext).taskDao()
+        repository = TaskRepository(dao)
+        mainViewModels = ViewModelProvider(context, MainViewModelFectory(repository)).get(mainViewModel::class.java)
 
         var taskModel: TaskModel = itemViewModels.get(position)
         holder.bind(taskModel)
@@ -52,7 +53,7 @@ class myTaskListAdapter(private var context: HomeActivity) :
                 holder.binding.imageDelete.isChecked = true
                 holder.binding.textView2.setPaintFlags(holder.binding.textView2.getPaintFlags() or Paint.STRIKE_THRU_TEXT_FLAG)
                 GlobalScope.launch {
-                    mainViewModel.updateTask(TaskModel(taskModel.id, taskModel.taskName,  taskModel.taskDesc, taskStatus = Constant.STATUS_DONE))
+                    mainViewModels.updateTask(TaskModel(taskModel.id, taskModel.taskName,  taskModel.taskDesc, taskStatus = Constant.STATUS_DONE))
                 }
                 notifyItemChanged(position)
 
@@ -60,7 +61,7 @@ class myTaskListAdapter(private var context: HomeActivity) :
                 holder.binding.imageDelete.isChecked = false
                 holder.binding.textView2.setPaintFlags(holder.binding.textView2.getPaintFlags() and Paint.STRIKE_THRU_TEXT_FLAG.inv())
                 GlobalScope.launch {
-                    mainViewModel.updateTask(TaskModel(taskModel.id, taskModel.taskName,  taskModel.taskDesc, taskStatus = Constant.STATUS_PENDING))
+                    mainViewModels.updateTask(TaskModel(taskModel.id, taskModel.taskName,  taskModel.taskDesc, taskStatus = Constant.STATUS_PENDING))
                 }
                 notifyItemChanged(position)
 
@@ -90,14 +91,13 @@ class myTaskListAdapter(private var context: HomeActivity) :
 
     fun removeAt(position: Int) {
         var taskModel: TaskModel = itemViewModels.get(position)
-        val database = Room.databaseBuilder(context, TaskAppDataBase::class.java, "taskDb").build()
-
+         GlobalScope.launch {
+             mainViewModels.deleteTask(taskModel)
+        }
         notifyItemRemoved(position)
         notifyItemRangeChanged(position, itemViewModels.size)
 
-        GlobalScope.launch {
-            database.taskDao().deleteTask(taskModel)
-        }
+       
     }
 
 /*
