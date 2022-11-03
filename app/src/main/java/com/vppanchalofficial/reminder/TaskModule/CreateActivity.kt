@@ -1,10 +1,10 @@
-package com.vppanchalofficial.reminder
+package com.vppanchalofficial.reminder.TaskModule
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import androidx.room.Room
+import com.vppanchalofficial.reminder.*
 import com.vppanchalofficial.reminder.databinding.ActivityCreateBinding
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -22,7 +22,8 @@ class CreateActivity : AppCompatActivity() {
         database = Room.databaseBuilder(this, TaskAppDataBase::class.java, "taskDb").build()
         val dao = TaskAppDataBase.getDatabase(applicationContext).taskDao()
         val repository = TaskRepository(dao)
-        val mainViewModel = ViewModelProvider(this, MainViewModelFectory(repository)).get(mainViewModel::class.java)
+        val mainViewModel = ViewModelProvider(this, MainViewModelFectory(repository)).get(
+            mainViewModel::class.java)
 
 
         binding.saveTask.setOnClickListener{
@@ -30,11 +31,13 @@ class CreateActivity : AppCompatActivity() {
                 binding.task.error = "Please Enter Task"
             }else {
                 GlobalScope.launch {
-                    mainViewModel.insertTask(TaskModel(
+                    mainViewModel.insertTask(
+                        TaskModel(
                         0,
                         binding.task.text.toString(),
                         binding.text2.text.toString()
-                    ))
+                    )
+                    )
 
                  /*   database.taskDao().insertTask(
                         TaskModel(

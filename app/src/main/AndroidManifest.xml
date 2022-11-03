@@ -11,10 +11,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Reminder">
         <activity
-            android:name="com.vppanchalofficial.reminder.CreateActivity"
+            android:name="com.vppanchalofficial.reminder.TaskModule.CreateActivity"
             android:exported="true" />
         <activity
-            android:name="com.vppanchalofficial.reminder.HomeActivity"
+            android:name="com.vppanchalofficial.reminder.TaskModule.HomeActivity"
             android:exported="true" />
         <activity
             android:name="com.vppanchalofficial.reminder.SplashScreen"

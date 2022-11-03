@@ -1,4 +1,4 @@
-package com.vppanchalofficial.reminder
+package com.vppanchalofficial.reminder.Singletons
 
 import android.content.Context
 import android.content.SharedPreferences

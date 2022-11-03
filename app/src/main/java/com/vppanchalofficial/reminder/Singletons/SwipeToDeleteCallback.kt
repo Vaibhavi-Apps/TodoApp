@@ -1,4 +1,4 @@
-package com.vppanchalofficial.reminder
+package com.vppanchalofficial.reminder.Singletons
 
 import android.content.Context
 import android.graphics.Canvas
@@ -10,6 +10,7 @@ import android.graphics.drawable.ColorDrawable
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
+import com.vppanchalofficial.reminder.R
 
 
 abstract class SwipeToDeleteCallback(context: Context) : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {

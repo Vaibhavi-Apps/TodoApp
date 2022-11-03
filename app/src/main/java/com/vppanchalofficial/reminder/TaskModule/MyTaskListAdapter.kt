@@ -1,12 +1,13 @@
-package com.vppanchalofficial.reminder
+package com.vppanchalofficial.reminder.TaskModule
 
 import android.graphics.Paint
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
-import androidx.room.Room
+import com.vppanchalofficial.reminder.BR
+import com.vppanchalofficial.reminder.Singletons.Constant
+import com.vppanchalofficial.reminder.TaskAppDataBase
 import com.vppanchalofficial.reminder.databinding.CreateTaskListBinding
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -35,7 +36,8 @@ class myTaskListAdapter(private var context: HomeActivity) :
 
         dao = TaskAppDataBase.getDatabase(context.applicationContext).taskDao()
         repository = TaskRepository(dao)
-        mainViewModels = ViewModelProvider(context, MainViewModelFectory(repository)).get(mainViewModel::class.java)
+        mainViewModels = ViewModelProvider(context, MainViewModelFectory(repository)).get(
+            mainViewModel::class.java)
 
         var taskModel: TaskModel = itemViewModels.get(position)
         holder.bind(taskModel)
@@ -67,21 +69,6 @@ class myTaskListAdapter(private var context: HomeActivity) :
 
             }
         }
-        /*holder.binding.imageDelete.setOnClickListener {
-            */
-        /*(itemViewModels as MutableList).removeAt(position)
-            notifyItemRemoved(position)
-            notifyItemRangeChanged(position, itemViewModels.size)
-
-            GlobalScope.launch {
-                database.taskDao().deleteTask(taskModel)
-            }
-            val expandIn: Animation = AnimationUtils.loadAnimation(context, R.anim.fade_out)
-            holder.itemView.startAnimation(expandIn)*/
-        /*
-
-
-        }*/
     }
 
     fun setList(it: List<TaskModel>) {
@@ -99,13 +86,6 @@ class myTaskListAdapter(private var context: HomeActivity) :
 
        
     }
-
-/*
-    fun updateList(arrayList: LiveData<List<TaskModel>>) {
-        itemViewModels = arrayList
-        //notifyDataSetChanged()
-    }
-*/
 
 
     class ViewHolder(var binding: CreateTaskListBinding) : RecyclerView.ViewHolder(binding.root) {

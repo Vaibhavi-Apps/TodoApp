@@ -1,4 +1,4 @@
-package com.vppanchalofficial.reminder
+package com.vppanchalofficial.reminder.Singletons
 
 class Constant {
 

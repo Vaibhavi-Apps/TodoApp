@@ -1,28 +1,21 @@
-package com.vppanchalofficial.reminder
+package com.vppanchalofficial.reminder.TaskModule
 
-import android.content.Intent
 import android.os.Bundle
-import android.speech.RecognizerIntent
-import android.util.Log
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.EditText
-import android.widget.SimpleAdapter
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.LifecycleObserver
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.vppanchalofficial.reminder.*
+import com.vppanchalofficial.reminder.Singletons.SwipeToDeleteCallback
 import com.vppanchalofficial.reminder.databinding.ActivityHomeBinding
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import java.util.*
 
 
 class HomeActivity : AppCompatActivity() {
@@ -88,11 +81,13 @@ class HomeActivity : AppCompatActivity() {
             }else {
                 bottomsheet.dismiss()
                 GlobalScope.launch {
-                    mainViewModelV.insertTask(TaskModel(
+                    mainViewModelV.insertTask(
+                        TaskModel(
                         0,
                         taskName.text.toString(),
                         taskDescription.text.toString()
-                    ))
+                    )
+                    )
 
                     /*   database.taskDao().insertTask(
                            TaskModel(
