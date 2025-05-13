@@ -1,8 +1,16 @@
 <resources>
     <string name="app_name">Todo</string>
     <string name="image_view">image_view</string>
-    <string name="add_task">Add Task</string>
-    <string name="enter_task">Enter Task</string>
+    <string name="add_task">Add New Task</string>
+    <string name="enter_task">Task Name</string>
     <string name="description">Description</string>
+    <string name="notes">Add Note</string>
     <string name="save_task">Save Task</string>
+    <string-array name="spinner_items">
+        <item>Select</item>
+        <item>Option 1</item>
+        <item>Option 2</item>
+        <item>Option 3</item>
+    </string-array>
+
 </resources>

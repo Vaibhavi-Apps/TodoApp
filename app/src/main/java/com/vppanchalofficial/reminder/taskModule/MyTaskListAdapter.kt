@@ -1,4 +1,4 @@
-package com.vppanchalofficial.reminder.TaskModule
+package com.vppanchalofficial.reminder.taskModule
 
 import android.graphics.Paint
 import android.view.LayoutInflater
@@ -17,7 +17,7 @@ class myTaskListAdapter(private var context: HomeActivity) :
     RecyclerView.Adapter<myTaskListAdapter.ViewHolder>() {
 
     private var itemViewModels: List<TaskModel> = listOf()
-    private lateinit var mainViewModels: mainViewModel
+    private lateinit var mainViewModels: MainViewModel
     private lateinit var dao: TaskDao
     private lateinit var repository: TaskRepository
 
@@ -37,7 +37,7 @@ class myTaskListAdapter(private var context: HomeActivity) :
         dao = TaskAppDataBase.getDatabase(context.applicationContext).taskDao()
         repository = TaskRepository(dao)
         mainViewModels = ViewModelProvider(context, MainViewModelFectory(repository)).get(
-            mainViewModel::class.java)
+            MainViewModel::class.java)
 
         var taskModel: TaskModel = itemViewModels.get(position)
         holder.bind(taskModel)
@@ -78,13 +78,13 @@ class myTaskListAdapter(private var context: HomeActivity) :
 
     fun removeAt(position: Int) {
         var taskModel: TaskModel = itemViewModels.get(position)
-         GlobalScope.launch {
-             mainViewModels.deleteTask(taskModel)
+        GlobalScope.launch {
+            mainViewModels.deleteTask(taskModel)
         }
         notifyItemRemoved(position)
         notifyItemRangeChanged(position, itemViewModels.size)
 
-       
+
     }
 
 
@@ -96,4 +96,3 @@ class myTaskListAdapter(private var context: HomeActivity) :
     }
 
 }
-

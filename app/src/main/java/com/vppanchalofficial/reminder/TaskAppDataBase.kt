@@ -4,8 +4,8 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.vppanchalofficial.reminder.TaskModule.TaskDao
-import com.vppanchalofficial.reminder.TaskModule.TaskModel
+import com.vppanchalofficial.reminder.taskModule.TaskDao
+import com.vppanchalofficial.reminder.taskModule.TaskModel
 
 @Database(entities =  [TaskModel::class], version = 1)
 abstract class TaskAppDataBase : RoomDatabase() {

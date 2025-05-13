@@ -1,4 +1,4 @@
-package com.vppanchalofficial.reminder.TaskModule
+package com.vppanchalofficial.reminder.taskModule
 
 import android.os.Bundle
 import android.view.WindowManager
@@ -24,7 +24,7 @@ class HomeActivity : AppCompatActivity() {
     private var adapter = myTaskListAdapter(this)
 
     private lateinit var repository: TaskRepository
-    private lateinit var mainViewModelV: mainViewModel
+    private lateinit var mainViewModelV: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,7 +48,7 @@ class HomeActivity : AppCompatActivity() {
 
         dao = TaskAppDataBase.getDatabase(applicationContext).taskDao()
         repository = TaskRepository(dao)
-        mainViewModelV = ViewModelProvider(this, MainViewModelFectory(repository)).get(mainViewModel::class.java)
+        mainViewModelV = ViewModelProvider(this, MainViewModelFectory(repository)).get(MainViewModel::class.java)
 
         mainViewModelV.getTask().observe(this, {
             adapter.setList(it)
@@ -83,10 +83,10 @@ class HomeActivity : AppCompatActivity() {
                 GlobalScope.launch {
                     mainViewModelV.insertTask(
                         TaskModel(
-                        0,
-                        taskName.text.toString(),
-                        taskDescription.text.toString()
-                    )
+                            0,
+                            taskName.text.toString(),
+                            taskDescription.text.toString()
+                        )
                     )
 
                     /*   database.taskDao().insertTask(

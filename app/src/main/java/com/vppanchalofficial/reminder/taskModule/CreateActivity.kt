@@ -1,4 +1,4 @@
-package com.vppanchalofficial.reminder.TaskModule
+package com.vppanchalofficial.reminder.taskModule
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -23,7 +23,7 @@ class CreateActivity : AppCompatActivity() {
         val dao = TaskAppDataBase.getDatabase(applicationContext).taskDao()
         val repository = TaskRepository(dao)
         val mainViewModel = ViewModelProvider(this, MainViewModelFectory(repository)).get(
-            mainViewModel::class.java)
+            MainViewModel::class.java)
 
 
         binding.saveTask.setOnClickListener{
@@ -33,19 +33,19 @@ class CreateActivity : AppCompatActivity() {
                 GlobalScope.launch {
                     mainViewModel.insertTask(
                         TaskModel(
-                        0,
-                        binding.task.text.toString(),
-                        binding.text2.text.toString()
-                    )
-                    )
-
-                 /*   database.taskDao().insertTask(
-                        TaskModel(
                             0,
                             binding.task.text.toString(),
                             binding.text2.text.toString()
                         )
-                    )*/
+                    )
+
+                    /*   database.taskDao().insertTask(
+                           TaskModel(
+                               0,
+                               binding.task.text.toString(),
+                               binding.text2.text.toString()
+                           )
+                       )*/
                 }
                 finish()
             }

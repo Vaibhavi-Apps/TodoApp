@@ -1,4 +1,4 @@
-package com.vppanchalofficial.reminder.TaskModule
+package com.vppanchalofficial.reminder.taskModule
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
